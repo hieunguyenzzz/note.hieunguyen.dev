@@ -13,3 +13,5 @@ tags:
     name: Varnish
   - slug: magento
     name: Magento
+  - slug: mobelaris
+    name: Mobelaris
