@@ -1,0 +1,32 @@
+---
+slug: cors
+title: CORS
+date: 2021-08-30
+author: hieu
+tags:
+  - http
+  - nginx
+---
+## Preflight request
+
+before sending the request to another origin the browser will send the prefight request to see if the server is allowed for cross origin request. the preflight request is the OPTION request and expect the response header to have  
+
+`Access-Control-Allow-Origin`
+
+`Access-Control-Allow-Headers`
+
+### nginx
+
+```
+location / {
+    if ($request_method = OPTIONS ) {
+        add_header Content-Length 0;
+        add_header Content-Type text/plain;
+        add_header "Access-Control-Allow-Origin" "*";
+        add_header "Access-Control-Request-Method" "*";
+        add_header "Access-Control-Allow-Headers" "*";
+        return 200;
+    }
+    try_files $uri $uri/ /index.php$is_args$args;
+}
+```
