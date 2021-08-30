@@ -1,3 +1,15 @@
 tags:
   - slug: movies
     name: Movies
+  - slug: http
+    name: HTTP
+  - slug: nginx
+    name: Nginx
+  - slug: nextjs
+    name: NextJS
+  - slug: strapi
+    name: Strapi
+  - slug: varnish
+    name: Varnish
+  - slug: magento
+    name: Magento
