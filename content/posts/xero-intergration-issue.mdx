@@ -1,0 +1,33 @@
+---
+slug: xero-intergration-issue
+title: Xero Intergration issue
+date: 2021-09-02
+author: hieu
+tags:
+  - mobelaris
+---
+## Configuration saving hit 502 page
+
+`vendor/magenest/module-xero/Observer/Setting/Adminhtml/Save.php::checkDisable()`
+
+it needs to remove the flush cache command on this function 
+
+## *`Connect Xero app now`* button does not work
+
+
+
+![](/images/screenshot-from-2021-09-02-14-00-12.png)
+
+
+
+the issue caused by the oauth url is not correct, this is correct url 
+
+
+
+```
+https://login.xero.com/identity/connect/authorize?response_type=code&client_id=44E85183A9FC419CBC5E059ACC3441AA&redirect_uri=https://www.mobelaris.com/en/xero/oauth/callback/&scope=openid%20email%20profile%20offline_access%20accounting.settings%20accounting.transactions%20accounting.contacts%20accounting.journals.read%20accounting.reports.read%20accounting.attachments&state=default-0-nJuwQAMcS5
+```
+
+
+
+## callback url does not seem to work
