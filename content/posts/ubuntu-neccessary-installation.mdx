@@ -1,0 +1,38 @@
+---
+slug: ubuntu-neccessary-installation
+title: ubuntu neccessary installation
+date: 2021-09-17
+author: hieu
+tags:
+  - ubuntu
+---
+## Ruby - Installing Ruby using Rbenv
+
+Rbenv is a lightweight command-line tool that allows you to easily switch Ruby versions.
+
+```
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+```
+
+
+If you are using Zsh:
+```
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+get a list of all ruby  and pick the 2.7.1 up
+```
+rbenv install -l
+rbenv install 2.7.1
+rbenv global 2.7.1
+```
+
+## Shopify CLI
+
+Shopify cli need the ruby 2.7.1 which installed using the above method
+```
+gem install shopify-cli`
+```
+
