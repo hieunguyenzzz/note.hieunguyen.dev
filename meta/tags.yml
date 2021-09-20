@@ -21,3 +21,5 @@ tags:
     name: shopify
   - slug: ubuntu
     name: Ubuntu
+  - slug: prisma
+    name: prisma
