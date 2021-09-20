@@ -1,0 +1,36 @@
+---
+slug: prisma
+title: Prima.io
+date: 2021-09-20
+author: hieu
+---
+## Installation
+
+## Integration
+### Setup database URL
+
+update the .env with the bellow
+```
+DATABASE_URL=mysql://user:password@host:3306/dbname
+```
+
+### Introspection
+
+pull the database schema from the remote and save it into `prisma/schema.prisma`
+```
+npx prisma db pull
+```
+
+### Install Prisma Client
+
+```
+npm install @prisma/client
+```
+
+### Generate prima client
+```
+npx prisma generate
+```
+### Prisma Cloud
+
+https://cloud.prisma.io/
