@@ -1,0 +1,31 @@
+---
+slug: useful-commands
+title: Useful Command
+date: 2021-10-16
+author: hieu
+tags: []
+---
+## Git
+
+#### Zip all the files changes between 2 commit
+```
+git archive --format=zip HEAD `git diff HEAD^ HEAD --name-only` > a.zip
+```
+
+## Unix
+### Systemctl
+
+all the systemctl locate at `/etc/systemd/system/`
+#### restart
+
+```
+systemctl restart autossh-mysql-tunnel
+```
+
+#### reload daemon 
+
+Its need to reload deamon after every changes make on systemctl
+
+```
+systemctl daemon-reload
+```
