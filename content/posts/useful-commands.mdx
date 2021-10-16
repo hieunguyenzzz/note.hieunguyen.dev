@@ -7,7 +7,23 @@ tags: []
 ---
 ## Git
 
-### Zip all the files changes between 2 commit
+#### Zip all the files changes between 2 commit
 ```
 git archive --format=zip HEAD `git diff HEAD^ HEAD --name-only` > a.zip
+```
+
+## Unix
+### Systemctl
+#### restart
+
+```
+systemctl restart autossh-mysql-tunnel
+```
+
+#### reload daemon 
+
+Its need to reload deamon after every changes make on systemctl
+
+```
+systemctl daemon-reload
 ```
