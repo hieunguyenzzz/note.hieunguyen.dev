@@ -1,0 +1,13 @@
+---
+slug: useful-commands
+title: Useful Command
+date: 2021-10-16
+author: hieu
+tags: []
+---
+## Git
+
+### Zip all the files changes between 2 commit
+```
+git archive --format=zip HEAD `git diff HEAD^ HEAD --name-only` > a.zip
+```
