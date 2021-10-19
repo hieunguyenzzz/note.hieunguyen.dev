@@ -1,0 +1,56 @@
+---
+slug: hook-post-save-to-deploy
+title: Hook post saving to deploy circleci
+date: 2021-10-19
+author: hieu
+tags:
+  - wordpress
+---
+```
+<?php // phpcs:ignore
+
+/**
+ * Plugin Name:     HQdeploy Trigger
+ * Description:     Trigger hqdeploy when saving post
+ * Author:          hieu nguyen
+ * Author URI:      https://hieunguyen.dev
+ * Version:         1.0.0
+ *
+ * @package         WP_HQdeploy_Trigger
+ */
+
+add_action('save_post', 'deploy_to_hqdeploy');
+function deploy_to_hqdeploy($post_id) {   
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => "https://circleci.com/api/v2/workflow/bf319ca3-b962-4b1e-9b6a-c751a53301c8/rerun",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_HTTPHEADER => array(
+        "cache-control: no-cache",
+        "circle-token: 458d138992b5bffb8dafe02dcafe78ca178b1e48",
+        "content-type: application/json",
+        "postman-token: 98748361-b9de-0248-4cb2-6031506e1ec1"
+      ),
+    ));
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    
+     
+}
+```
