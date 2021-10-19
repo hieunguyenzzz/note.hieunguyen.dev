@@ -23,3 +23,5 @@ tags:
     name: Ubuntu
   - slug: prisma
     name: prisma
+  - slug: wordpress
+    name: Wordpress
