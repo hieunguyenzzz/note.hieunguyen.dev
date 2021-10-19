@@ -25,3 +25,5 @@ tags:
     name: prisma
   - slug: wordpress
     name: Wordpress
+  - slug: circleci
+    name: CircleCi
